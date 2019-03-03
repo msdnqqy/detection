@@ -49,13 +49,39 @@ class DataPlus(object):
             out=[out1,out2,out3,out4]
 
             for i in range(4):
-                cv2.imwrite(r'{0}\{1}.jpg'.format(self.outpath,self.count),np.asarray(out[i]))
+                cv2.imwrite(os.path.join(self.path,'{0}.jpg'.format(self.count)),np.asarray(out[i]))
                 cv2.imshow('transpose',np.asarray(out[i]))
-                cv2.waitKey(10)
+                cv2.waitKey(5)
                 self.count+=1
 
+    #定义添加椒盐噪声的函数
+    def SaltAndPepper(self,src,percetage):  
+        SP_NoiseImg=src 
+        SP_NoiseNum=int(percetage*src.shape[0]*src.shape[1]) 
+        for i in range(SP_NoiseNum): 
+            randX=np.random.random_integers(0,src.shape[0]-1) 
+            randY=np.random.random_integers(0,src.shape[1]-1) 
+            if np.random.random_integers(0,1)==0: 
+                SP_NoiseImg[randX,randY]=0 
+            else: 
+                SP_NoiseImg[randX,randY]=255 
+        return SP_NoiseImg 
+
+    def add_saltAndPepper(self,percetage):
+        lists=self.getImgList()
+        for subpath in lists:
+            img=cv2.imread(subpath[0])
+            img_salt=self.SaltAndPepper(img,percetage)
+            cv2.imshow("add_salt",img_salt)
+            cv2.imwrite(os.path.join(self.path,'{0}.jpg'.format(self.count)),img_salt)
+            cv2.waitKey(5)
+            self.count+=1
 
 
 if __name__ == "__main__":
-    dataplus=DataPlus(r'C:\Users\Administrator\Desktop\datasets\images\1',r'C:\Users\Administrator\Desktop\datasets\images\1')
-    dataplus.transpose_img()
+    # dataplus=DataPlus(r'C:\Users\Administrator\Desktop\datasets\images\1',r'C:\Users\Administrator\Desktop\datasets\images\1')
+    dataplus=DataPlus(r'./datasets/images/1',r'./datasets/images/1')
+    # dataplus.transpose_img()
+    # lists=dataplus.getImgList()
+    # dataplus.SaltAndPepper(cv2.imread(lists[0][0]),0.1)
+    dataplus.add_saltAndPepper(0.1)

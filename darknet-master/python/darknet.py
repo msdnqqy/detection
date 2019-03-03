@@ -1,6 +1,7 @@
 from ctypes import *
 import math
 import random
+import cv2
 
 def sample(probs):
     s = sum(probs)
@@ -45,7 +46,7 @@ class METADATA(Structure):
     
 
 #lib = CDLL("/home/pjreddie/documents/darknet/libdarknet.so", RTLD_GLOBAL)
-lib = CDLL("libdarknet.so", RTLD_GLOBAL)
+lib = CDLL("./libdarknet.so", RTLD_GLOBAL)
 lib.network_width.argtypes = [c_void_p]
 lib.network_width.restype = c_int
 lib.network_height.argtypes = [c_void_p]
@@ -148,9 +149,37 @@ if __name__ == "__main__":
     #meta = load_meta("cfg/imagenet1k.data")
     #r = classify(net, meta, im)
     #print r[:10]
-    net = load_net("cfg/tiny-yolo.cfg", "tiny-yolo.weights", 0)
-    meta = load_meta("cfg/coco.data")
-    r = detect(net, meta, "data/dog.jpg")
-    print r
+    # net = load_net("cfg/tiny-yolo.cfg", "tiny-yolo.weights", 0)
+    cfg=bytes("./cfg/yolov3.cfg",encoding='utf-8')
+    weightsfile=bytes("./yolov3.weights",encoding='utf-8')
+    net = load_net(cfg,weightsfile , 0)
+
+    img="data/horses.jpg"
+    metafile=bytes("cfg/coco.data",encoding='utf-8')
+    imgfile=bytes(img,encoding='utf-8')
+    meta = load_meta(metafile)
+    r = detect(net, meta, imgfile)
+    print(r)
     
+
+    #展示检测到的对象
+    img_cv=cv2.imread(img)
+
+    #画出中心点
+    for  point in r:
+        name=point[0]
+        prob=point[1]
+        center_x=point[2][0]
+        center_y=point[2][1]
+        width=point[2][2]
+        height=point[2][3]
+        img_cv[int(center_y):int(center_y+10),int(center_x):int(center_x+10)]=[255,0,0]
+        begin=(int(center_x-1/2*width),int(center_y-1/2*height))
+        end=(int(center_x+1/2*width),int(center_y+1/2*height))
+        cv2.rectangle(img_cv,begin,end,(255,0,0),2)
+        #在顶部显示prob+name
+        cv2.putText(img_cv,'%.2f-%s'%(prob,name),begin,cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,0,0),1,cv2.LINE_AA)        
+
+    cv2.imshow('yolo3-darknet',img_cv)
+    cv2.waitKey()
 
