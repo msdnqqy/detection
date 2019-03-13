@@ -18,6 +18,7 @@ def c_array(ctype, values):
     arr[:] = values
     return arr
 
+#bounding box的结构，我们预测输出为[box,box,classify]
 class BOX(Structure):
     _fields_ = [("x", c_float),
                 ("y", c_float),
@@ -39,12 +40,18 @@ class IMAGE(Structure):
                 ("c", c_int),
                 ("data", POINTER(c_float))]
 
+class IMAGE_ARRAY(Structure):
+    _fields_ = [("w", c_int),
+                ("h", c_int),
+                ("c", c_int),
+                ("array", c_float*921600)]
+
 class METADATA(Structure):
     _fields_ = [("classes", c_int),
                 ("names", POINTER(c_char_p))]
 
     
-
+#引用编译好的darknet
 #lib = CDLL("/home/pjreddie/documents/darknet/libdarknet.so", RTLD_GLOBAL)
 lib = CDLL("./libdarknet.so", RTLD_GLOBAL)
 lib.network_width.argtypes = [c_void_p]
@@ -108,6 +115,11 @@ load_image = lib.load_image_color
 load_image.argtypes = [c_char_p, c_int, c_int]
 load_image.restype = IMAGE
 
+#为cv2设计，从array中生成image
+create_image_using_array = lib.create_image_using_array
+create_image_using_array.argtypes = [c_int, c_int, c_int,c_float*921600]
+create_image_using_array.restype = IMAGE
+
 rgbgr_image = lib.rgbgr_image
 rgbgr_image.argtypes = [IMAGE]
 
@@ -121,6 +133,32 @@ def classify(net, meta, im):
     for i in range(meta.classes):
         res.append((meta.names[i], out[i]))
     res = sorted(res, key=lambda x: -x[1])
+    return res
+
+#用于opencv-Python的方法
+def detect_cv2(net, meta, image, thresh=.5, hier_thresh=.5, nms=.45):
+    image_arrray=(image/255).flatten()
+    arrayxxx=c_float*921600
+    array=arrayxxx()
+    for i in range(921600):
+        array[i]=float( image_arrray[i])
+    im=create_image_using_array(image.shape[0],image.shape[1],image.shape[2],array)
+    num = c_int(0)
+    pnum = pointer(num)
+    predict_image(net, im)
+    dets = get_network_boxes(net, im.w, im.h, thresh, hier_thresh, None, 0, pnum)
+    num = pnum[0]
+    if (nms): do_nms_obj(dets, num, meta.classes, nms);
+
+    res = []
+    for j in range(num):
+        for i in range(meta.classes):
+            if dets[j].prob[i] > 0:
+                b = dets[j].bbox
+                res.append((meta.names[i], dets[j].prob[i], (b.x, b.y, b.w, b.h)))
+    res = sorted(res, key=lambda x: -x[1])
+    # free_image(im)
+    # free_detections(dets, num)
     return res
 
 def detect(net, meta, image, thresh=.5, hier_thresh=.5, nms=.45):
@@ -158,28 +196,30 @@ if __name__ == "__main__":
     metafile=bytes("cfg/coco.data",encoding='utf-8')
     imgfile=bytes(img,encoding='utf-8')
     meta = load_meta(metafile)
-    r = detect(net, meta, imgfile)
-    print(r)
-    
 
-    #展示检测到的对象
-    img_cv=cv2.imread(img)
+    for i in range(3):
+        r = detect(net, meta, imgfile)
+        print(r)
+        
 
-    #画出中心点
-    for  point in r:
-        name=point[0]
-        prob=point[1]
-        center_x=point[2][0]
-        center_y=point[2][1]
-        width=point[2][2]
-        height=point[2][3]
-        img_cv[int(center_y):int(center_y+10),int(center_x):int(center_x+10)]=[255,0,0]
-        begin=(int(center_x-1/2*width),int(center_y-1/2*height))
-        end=(int(center_x+1/2*width),int(center_y+1/2*height))
-        cv2.rectangle(img_cv,begin,end,(255,0,0),2)
-        #在顶部显示prob+name
-        cv2.putText(img_cv,'%.2f-%s'%(prob,name),begin,cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,0,0),1,cv2.LINE_AA)        
+        #展示检测到的对象
+        img_cv=cv2.imread(img)
 
-    cv2.imshow('yolo3-darknet',img_cv)
-    cv2.waitKey()
+        #画出中心点
+        for  point in r:
+            name=point[0]
+            prob=point[1]
+            center_x=point[2][0]
+            center_y=point[2][1]
+            width=point[2][2]
+            height=point[2][3]
+            img_cv[int(center_y):int(center_y+10),int(center_x):int(center_x+10)]=[255,0,0]
+            begin=(int(center_x-1/2*width),int(center_y-1/2*height))
+            end=(int(center_x+1/2*width),int(center_y+1/2*height))
+            cv2.rectangle(img_cv,begin,end,(255,0,0),2)
+            #在顶部显示prob+name
+            cv2.putText(img_cv,'%.2f-%s'%(prob,name),begin,cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,0,0),1,cv2.LINE_AA)        
+
+        cv2.imshow('yolo3-darknet',img_cv)
+        cv2.waitKey(2000)
 

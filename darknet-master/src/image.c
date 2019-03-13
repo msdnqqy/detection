@@ -1335,6 +1335,12 @@ image load_image_color(char *filename, int w, int h)
     return load_image(filename, w, h, 3);
 }
 
+image create_image_using_array(int w,int h,int c,float array[]){
+    image im = make_image(w, h, c);
+    im.data=array;
+    return im;
+}
+
 image get_image_layer(image m, int l)
 {
     image out = make_image(m.w, m.h, 1);
