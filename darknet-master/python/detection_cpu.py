@@ -20,12 +20,13 @@ class DetectVideo(object):
     def read_video_and_detect(self):
         cap=cv2.VideoCapture(self.path)
         ret, frame = cap.read()
+        # image=cv2.imread('./data/dog.jpg')
         while ret:
             cv2.imshow("origin img",frame)
             cv2.waitKey(30)
-            r = detect_cv2(self.net, self.meta, frame)
+            r = detect_cv2_2(self.net, self.meta, frame)
             print("检测结果：",r)
-            self.show_result(r,frame)
+            self.show_result(r,frame.copy())
             cv2.waitKey(30)
 
     #显示结果

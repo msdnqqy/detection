@@ -56,3 +56,14 @@ image ipl_to_image(IplImage* src)
     }
     return im;
 }
+
+for(i =0 ; i < m.c; ++i){
+        for(j =0 ; j < m.h; ++j){
+            for(k = 0; k < m.w; ++k){
+                printf("%.2lf, ", m.data[i*m.h*m.w + j*m.w + k]);
+                if(k > 30) break;
+            }
+            printf("\n");
+            if(j > 30) break;
+        }
+}

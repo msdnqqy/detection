@@ -44,7 +44,8 @@ class IMAGE_ARRAY(Structure):
     _fields_ = [("w", c_int),
                 ("h", c_int),
                 ("c", c_int),
-                ("array", c_float*921600)]
+                # ("array", c_float*921600)]
+                 ("array", c_float*1327104)]
 
 class METADATA(Structure):
     _fields_ = [("classes", c_int),
@@ -136,12 +137,43 @@ def classify(net, meta, im):
     return res
 
 #用于opencv-Python的方法
+def detect_cv2_2(net, meta, image, thresh=.5, hier_thresh=.5, nms=.45):
+    filename='image.jpg'
+    cv2.imwrite(filename,image)
+    im = load_image(bytes(filename,encoding="utf-8"), 0, 0)
+    num = c_int(0)
+    pnum = pointer(num)
+    predict_image(net, im)
+    dets = get_network_boxes(net, im.w, im.h, thresh, hier_thresh, None, 0, pnum)
+    num = pnum[0]
+    if (nms): do_nms_obj(dets, num, meta.classes, nms);
+
+    res = []
+    for j in range(num):
+        for i in range(meta.classes):
+            if dets[j].prob[i] > 0:
+                b = dets[j].bbox
+                res.append((meta.names[i], dets[j].prob[i], (b.x, b.y, b.w, b.h)))
+    res = sorted(res, key=lambda x: -x[1])
+    free_image(im)
+    free_detections(dets, num)
+    return res
+is_first=True
 def detect_cv2(net, meta, image, thresh=.5, hier_thresh=.5, nms=.45):
-    image_arrray=(image/255).flatten()
-    arrayxxx=c_float*921600
+    global is_first
+    if is_first:
+        create_image_using_array.argtypes = [c_int, c_int, c_int,c_float*(image.shape[0]*image.shape[1]*image.shape[2])]
+        create_image_using_array.restype = IMAGE
+        is_first=False
+    image_1=image.astype(float)
+    arrayxxx=c_float*(image.shape[0]*image.shape[1]*image.shape[2])
     array=arrayxxx()
-    for i in range(921600):
-        array[i]=float( image_arrray[i])
+    h,w,c=image.shape[0],image.shape[1],image.shape[2]
+    for i in range(c):
+        for j in range(h):
+            for k in range(w):
+                 array[i*h*w + j*w + k]=float(image_1[j,k,i])
+
     im=create_image_using_array(image.shape[0],image.shape[1],image.shape[2],array)
     num = c_int(0)
     pnum = pointer(num)
