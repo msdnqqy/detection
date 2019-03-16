@@ -169,10 +169,17 @@ def detect_cv2(net, meta, image, thresh=.5, hier_thresh=.5, nms=.45):
     arrayxxx=c_float*(image.shape[0]*image.shape[1]*image.shape[2])
     array=arrayxxx()
     h,w,c=image.shape[0],image.shape[1],image.shape[2]
-    for i in range(c):
-        for j in range(h):
-            for k in range(w):
-                 array[i*h*w + j*w + k]=float(image_1[j,k,i])
+    # count=0
+    # for k in range(c):
+    #     for i in range(h):
+    #         for j in range(w):
+    #              array[count]=float(image_1[i,j,k]/255)
+    #              count+=1
+
+    for i in range(h):
+        for k in range(c):
+            for j in range(w):
+                array[k*w*h + i*w + j] = float(image_1[i,j,k]/255.)
 
     im=create_image_using_array(image.shape[0],image.shape[1],image.shape[2],array)
     num = c_int(0)
