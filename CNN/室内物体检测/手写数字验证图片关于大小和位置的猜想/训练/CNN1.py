@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import cv2
 from tensorflow.examples.tutorials.mnist import input_data
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['C:\\Users\\Administrator\\Desktop\\detection', 'C:/Users/Administrator/Desktop/detection'])
 
 #获取数据
 mnist=input_data.read_data_sets('MNIST_DATA',one_hot=True)
@@ -38,16 +40,16 @@ tf_y=tf.placeholder(tf.float32,[None,10])
 
 #定义卷积层
 conv1=tf.layers.conv2d(tf_x,32,5,1,'same',activation=tf.nn.relu)#56*56*32
-pooling1=tf.layers.max_pooling2d(conv1,2,1)#最大池化55*55*32
-conv2=tf.layers.conv2d(pooling1,64,5,1,'same',activation=tf.nn.relu)#51*51*64
-pooling2=tf.layers.max_pooling2d(conv2,2,1)#最大池化50*50*64
+# pooling1=tf.layers.max_pooling2d(conv1,2,2)#最大池化55*55*32
+conv2=tf.layers.conv2d(conv1,64,5,1,'same',activation=tf.nn.relu)#51*51*64
+pooling2=tf.layers.max_pooling2d(conv2,2,2)#最大池化50*50*64
 
 conv3=tf.layers.conv2d(pooling2,128,5,1,'same',activation=tf.nn.relu)#46*46*128
-pooling3=tf.layers.max_pooling2d(conv3,2,1)#最大池化45*45*128
-conv4=tf.layers.conv2d(pooling3,128,5,1,'same',activation=tf.nn.relu)#41*41*128
-pooling4=tf.layers.max_pooling2d(conv4,2,1)#最大池化40*40*128
+# pooling3=tf.layers.max_pooling2d(conv3,2,1)#最大池化45*45*128
+conv4=tf.layers.conv2d(conv3,128,5,1,'same',activation=tf.nn.relu)#41*41*128
+pooling4=tf.layers.max_pooling2d(conv4,2,2)#最大池化40*40*128
 
-flat=tf.reshape(pooling4,[-1,128*52*52])
+flat=tf.reshape(pooling4,[-1,128*14*14])
 output=tf.layers.dense(flat,10,activation=tf.nn.softmax)
 
 accuracy=tf.metrics.accuracy(labels=tf.argmax(tf_y,axis=1),predictions=tf.argmax(output,axis=1))[1]
