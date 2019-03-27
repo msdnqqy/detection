@@ -77,8 +77,8 @@ for i in range(1000):
         prediction_=sess.run(prediction,feed_dict={xs:x_data,ys:y_data})
         try:
             ax.lines.remove(lines[0])
-        except (Exception),e:
-            print(e)
+        except:
+            print("error ")
         lines=ax.plot(x_data,prediction_,'r-',lw=5)
 #         plt.ion()
 #         plt.show()
