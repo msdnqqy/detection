@@ -30,11 +30,16 @@ class ReadVideoToImgs(object):
                 print('已完成：',self.count)
                 cv2.imshow('Video',frame)
                 cv2.waitKey(10)
+            else:
+                break
         cv2.destroyAllWindows()
         cap.release()
 
 
 
 if __name__=='__main__':
-    readVideoToImgs=ReadVideoToImgs(r'C:\Users\Administrator\Desktop\datasets\video\1\1.mp4',r'C:\Users\Administrator\Desktop\datasets\images\1\origin')
-    readVideoToImgs.readvideo_saveas_imgs()
+    print("开始运行")
+    for i in range(1,11):
+        readVideoToImgs=ReadVideoToImgs(r'C:\Users\Administrator\Desktop\datasets\video\{0}\{0}.mp4'.format(i,i),r'C:\Users\Administrator\Desktop\datasets\images\{0}\origin'.format(i,))
+        readVideoToImgs.readvideo_saveas_imgs()
+        print('已完成：',i)

@@ -39,7 +39,7 @@ fc1=tf.layers.dense(flat,4096,tf.nn.relu)
 fc2=tf.layers.dense(fc1,1024,tf.nn.relu)
 output=tf.layers.dense(fc2,10,tf.nn.softmax)
 
-loss=tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=tf_y,logits=output))
+loss=tf.losses.softmax_cross_entropy(onehot_labels=tf_y,logits=output)
 train_op=tf.train.AdamOptimizer(1*1e-3).minimize(loss)
 accury=tf.metrics.accuracy(labels=tf_y,predictions=output)[1]
 

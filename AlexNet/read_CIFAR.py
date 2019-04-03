@@ -10,21 +10,21 @@ def unpickle(file):
         dict = pickle.load(fo, encoding='latin1')
     return dict
 
-def get_traindata(num=100):
+def get_traindata(num=100,size=(227,227)):
     index=np.random.randint(1,6)
     data=unpickle(r"C:\Users\Administrator\Desktop\detection\AlexNet\cifar-10-python\cifar-10-batches-py\data_batch_{0}".format(index))
     indexs=np.random.randint(0,10000,num)
     labels_ori=np.array(data['labels'])[indexs]
     labels=get_labels(labels_ori)
-    return resize(np.array(data['data'])[indexs]/255,(227,227)),labels
+    return resize(np.array(data['data'],dtype=np.float32)[indexs]/255,size),labels
 
-def get_testdata(num=100):
+def get_testdata(num=100,size=(227,227)):
     index = np.random.randint(1, 6)
     data = unpickle(r"C:\Users\Administrator\Desktop\detection\AlexNet\cifar-10-python\cifar-10-batches-py\test_batch")
     indexs_test = np.random.randint(0, 10000, num)
     labels_ori = np.array(data['labels'])[indexs_test]
     labels_test = get_labels(labels_ori)
-    return resize(np.array(data['data'])[indexs_test]/255,(227,227)),labels_test
+    return resize(np.array(data['data'],dtype=np.float32)[indexs_test]/255,size),labels_test
 
 
 def resize(images,shape):
@@ -35,7 +35,7 @@ def resize(images,shape):
         b=image[2048:3072].reshape(32,32,1)
         img=np.concatenate((r,g,b),axis=2)
         # cv2.imshow('img',img)
-        image_resize=cv2.resize(img,shape,interpolation=cv2.INTER_CUBIC)
+        image_resize=cv2.resize(img,shape)
         images_resize.append(image_resize)
         # cv2.imshow('image_resize',image_resize)
         # cv2.waitKey(24)

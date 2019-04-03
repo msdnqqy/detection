@@ -31,7 +31,7 @@ class dataDeal(object):
         for item in self.getImgList():
             img=cv2.imread(item[0])
             img_cp=self.resize(img,width,height)
-            cv2.imwrite(self.outpath+r'\resize\{0}x{1}_'.format(width,height)+item[1],img_cp)
+            cv2.imwrite(self.outpath+r'\{0}x{1}_'.format(width,height)+item[1],img_cp)
         print("转化完成")
 
 
@@ -46,6 +46,7 @@ class dataDeal(object):
         img_3=img[half_h:,0:half_w]
         img_4=img[half_h:,half_w:]
         img_c=img[int(height-(height-half_h)/2):int(height-(height-half_h)/2)+half_h,int(width-(width-half_w)/2):int(width-(width-half_w)/2)+half_w]
+
         return [img_1,img_2,img_3,img_4,img_c]
 
 
@@ -58,7 +59,7 @@ class dataDeal(object):
             item=list[k]
             imgs=self.cut(cv2.imread(item[0]))
             for i in range(len(imgs)):
-                cv2.imwrite(self.outpath+r'\cut\{0}_'.format(i)+item[1],imgs[i])
+                cv2.imwrite(self.outpath+r'\{0}_{1}'.format(i,item[1]),cv2.resize(imgs[i],(64,64)))
 
     print("切分保存完成")
 
@@ -76,7 +77,11 @@ class dataDeal(object):
 
 
 if __name__=="__main__":
-    dataDeal_instance=dataDeal(path=r'C:\Users\Administrator\Desktop\datasets\images\1\origin',
-                               outpath=r'C:\Users\Administrator\Desktop\datasets\images\1\deal')
-    dataDeal_instance.resize_all(width=128,height=128)
-    dataDeal_instance.cut_all_and_save(path=r'C:\Users\Administrator\Desktop\datasets\images\1\deal\resize')
+
+    for i in range(1,11):
+
+        dataDeal_instance=dataDeal(path=r'C:\Users\Administrator\Desktop\datasets\images\{0}\origin'.format(i),
+                                   outpath=r'C:\Users\Administrator\Desktop\datasets\images\{0}\deal'.format(i))
+        dataDeal_instance.resize_all(width=64,height=64)
+        dataDeal_instance.cut_all_and_save(path=r'C:\Users\Administrator\Desktop\datasets\images\{0}\origin'.format(i))
+        print('已完成：',i)
