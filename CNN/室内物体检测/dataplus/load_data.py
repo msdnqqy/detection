@@ -103,11 +103,12 @@ def read_image(images_info,indexs):
     labels=[]
     for item in train_images_info:
         image=cv2.imread(item['path'])
+        image=image.astype(np.float32)/255.0
         label=item['label']
         images.append(image)
         labels.append(label)
 
-    return np.array(images),np.array(labels)
+    return np.array(images,dtype=np.float32),np.array(labels,dtype=np.float32)
 
 if __name__=="__main__":
     print("开始获取",datetime.datetime.now())
