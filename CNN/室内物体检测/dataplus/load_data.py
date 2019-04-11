@@ -10,7 +10,7 @@ import datetime
 with tf.device('/cpu:0'):
     sess=tf.Session()
     sess.run([tf.global_variables_initializer(),tf.local_variables_initializer()])
-Files=np.array([1,2,3,4,5,6,7,8,9,10])
+Files=np.array([0,1,2,3,4,5,6,7,8,9,10])
 ImagePath=r'C:\Users\Administrator\Desktop\datasets\images\{0}\deal'
 
 def get_data(num=10000):

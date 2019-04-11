@@ -84,7 +84,7 @@ class dataDeal(object):
 
 if __name__=="__main__":
 
-    for i in range(1,11):
+    for i in range(0,11):
 
         dataDeal_instance=dataDeal(path=r'C:\Users\Administrator\Desktop\datasets\images\{0}\origin'.format(i),
                                    outpath=r'C:\Users\Administrator\Desktop\datasets\images\{0}\deal'.format(i))

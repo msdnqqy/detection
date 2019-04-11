@@ -39,7 +39,7 @@ class ReadVideoToImgs(object):
 
 if __name__=='__main__':
     print("开始运行")
-    for i in range(1,11):
+    for i in range(0,11):
         readVideoToImgs=ReadVideoToImgs(r'C:\Users\Administrator\Desktop\datasets\video\{0}\{0}.mp4'.format(i,i),r'C:\Users\Administrator\Desktop\datasets\images\{0}\origin'.format(i,))
         readVideoToImgs.readvideo_saveas_imgs()
         print('已完成：',i)
