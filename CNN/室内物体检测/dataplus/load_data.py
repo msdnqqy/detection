@@ -58,8 +58,8 @@ def get_all_names():
     lists=[]
     for item in Files:
         path=ImagePath.format(item)
-        list=getImgList(path)
-        lists.append(list)
+        list_rename=getImgList(path)
+        lists.append(list_rename)
 
     return lists
 
@@ -70,13 +70,13 @@ def get_all_path_and_labels():
     train_path_labels=[]
     for item in Files:
         path=ImagePath.format(item)
-        list=getImgList(path)
+        list_rename=getImgList(path)
         label=[0]*(len(Files)+1)
         label[item]=1
-        for i in range(len(list)):
+        for i in range(len(list_rename)):
             img={
-                'path':list[i][0],
-                'name':list[i][1],
+                'path':list_rename[i][0],
+                'name':list_rename[i][1],
                 'label':np.array(label),
             }
             train_path_labels.append(img)
@@ -87,9 +87,9 @@ def get_all_path_and_labels():
 获取文件夹下的文件路径及名称
 """
 def getImgList(path=None):
-    list = os.listdir(path)
+    list_rename = os.listdir(path)
     subpath = []
-    for sub in list:
+    for sub in list_rename:
         subpath.append([os.path.join(path, sub), sub])
     return subpath
 

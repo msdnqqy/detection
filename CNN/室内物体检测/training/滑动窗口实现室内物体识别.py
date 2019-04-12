@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 
 SAVERPATH=r"F:\models\室内物体检测V2\model.ckpt"
-tf.set_random_seed(1)
+# tf.set_random_seed(1)
 i=0
 """
 array([
@@ -45,11 +45,12 @@ conv3=tf.layers.conv2d(lrn2,128,8,2,padding='valid',activation=tf.nn.relu
                        # ,kernel_initializer=tf.truncated_normal_initializer(stddev=0.1,dtype=tf.float32)
                        )
 
-conv4=tf.layers.conv2d(conv3,12,11,activation=tf.nn.softmax
+conv4=tf.layers.conv2d(conv3,256,11,activation=tf.nn.relu
                        # ,kernel_initializer=tf.truncated_normal_initializer(stddev=0.1,dtype=tf.float32)
                        )
 
-output=tf.reshape(conv4,[-1,12])
+conv5=tf.layers.conv2d(conv4,12,1,activation=tf.nn.softmax)
+output=tf.reshape(conv5,[-1,12])
 
 loss = tf.losses.softmax_cross_entropy(onehot_labels=tf_y, logits=output)
 train_op = tf.train.AdamOptimizer(5* 1e-3).minimize(loss)
@@ -74,11 +75,11 @@ def train(iters=1000):
         # print("获取数据结束")
         train_,loss_=sess.run([train_op,loss],{tf_x:bx,tf_y:by})
 
-        if i %100==0:
+        if i %1==0:
             losses.append(loss_)
             indexs = np.random.randint(0, images_info.shape[0], size=100)
             bxt, byt = read_image(images_info, indexs)
-            acc, loss_,output_ ,conv4_= sess.run([accury, loss,output,conv4], {tf_x: bxt, tf_y: byt})
+            acc, loss_,output_ ,conv4_= sess.run([accury, loss,output,conv5], {tf_x: bxt, tf_y: byt})
             print("conv4",conv4_)
             print(np.argmax(byt,axis=1))
             print(i,',准确率为：',acc,np.argmax(output_,axis=1),output_[:5,:])
