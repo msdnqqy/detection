@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="815e387f-5f1b-4e99-ad3c-d87de456b64e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CNN/室内物体检测/training/分类网络.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CNN/室内物体检测/training/室内物体识别训练.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CNN/室内物体检测/使用/using_new.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CNN/室内物体检测/dataplus/load_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN/室内物体检测/dataplus/load_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CNN/室内物体检测/training/滑动窗口实现室内物体识别.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN/室内物体检测/training/滑动窗口实现室内物体识别.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CNN/室内物体检测/手写数字验证图片关于大小和位置的猜想/网络保存/MNIST/mnist_model.ckpt.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/CNN/室内物体检测/手写数字验证图片关于大小和位置的猜想/网络保存/MNIST/mnist_model.ckpt.data-00000-of-00001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CNN/室内物体检测/手写数字验证图片关于大小和位置的猜想/网络保存/MNIST/mnist_model.ckpt.index" beforeDir="false" afterPath="$PROJECT_DIR$/CNN/室内物体检测/手写数字验证图片关于大小和位置的猜想/网络保存/MNIST/mnist_model.ckpt.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN/室内物体检测/training/室内物体识别训练.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN/室内物体检测/training/室内物体识别训练.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN/室内物体检测/使用/using.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN/室内物体检测/使用/using.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CNN/室内物体检测/使用/using_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN/室内物体检测/使用/using_new.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +15,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/detection$CNN.coverage" NAME="CNN Coverage Results" MODIFIED="1553435013369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CNN/室内物体检测/手写数字验证图片关于大小和位置的猜想/训练" />
+    <SUITE FILE_PATH="coverage/detection$using_new.coverage" NAME="using_new Coverage Results" MODIFIED="1555148128519" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CNN/室内物体检测/使用" />
     <SUITE FILE_PATH="coverage/detection$test_tensorflow_gpu.coverage" NAME="test_tensorflow_gpu Coverage Results" MODIFIED="1553276015357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/detection$readVideoToImgs.coverage" NAME="readVideoToImgs Coverage Results" MODIFIED="1554051744077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CNN/室内物体检测/dataplus" />
     <SUITE FILE_PATH="coverage/detection$load_data.coverage" NAME="load_data Coverage Results" MODIFIED="1554833249203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CNN/室内物体检测/dataplus" />
@@ -29,12 +26,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/training/滑动窗口实现室内物体识别.py">
+        <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/training/室内物体识别训练.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="107" selection-end-column="36" />
+            <state relative-caret-position="108">
+              <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
               <folding>
-                <element signature="e#29#72#0" expanded="true" />
+                <element signature="e#0#23#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -43,32 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/使用/using_new.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/使用/using.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="48" column="59" lean-forward="true" selection-start-line="22" selection-end-line="48" selection-end-column="59" />
-              <folding>
-                <element signature="e#29#75#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/training/室内物体识别训练.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="201">
+              <caret line="34" column="34" lean-forward="true" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -112,16 +85,16 @@
         <option value="$PROJECT_DIR$/AlexNet/自己实现CIFAR分类.py" />
         <option value="$PROJECT_DIR$/CNN/室内物体检测/dataplus/readVideoToImgs.py" />
         <option value="$PROJECT_DIR$/CNN/室内物体检测/dataplus/DataDeal.py" />
-        <option value="$PROJECT_DIR$/CNN/室内物体检测/使用/using.py" />
         <option value="$PROJECT_DIR$/CNN/室内物体检测/training/分类网络.py" />
         <option value="$PROJECT_DIR$/CNN/室内物体检测/training/滑动窗口实现室内物体识别.py" />
         <option value="$PROJECT_DIR$/CNN/室内物体检测/dataplus/load_data.py" />
+        <option value="$PROJECT_DIR$/CNN/室内物体检测/使用/using.py" />
         <option value="$PROJECT_DIR$/CNN/室内物体检测/training/室内物体识别训练.py" />
         <option value="$PROJECT_DIR$/CNN/室内物体检测/使用/using_new.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="115" />
     <option name="width" value="1720" />
     <option name="height" value="1075" />
@@ -207,7 +180,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -229,7 +202,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.室内物体识别训练">
+  <component name="RunManager" selected="Python.using_new">
     <configuration name="滑动窗口实现室内物体识别" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="detection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -290,28 +263,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="CNN1" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="detection" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CNN/室内物体检测/手写数字验证图片关于大小和位置的猜想/训练" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN/室内物体检测/手写数字验证图片关于大小和位置的猜想/训练/CNN1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="分类网络" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="detection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -353,20 +304,36 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="load_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="using" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="detection" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CNN/室内物体检测/dataplus" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CNN/室内物体检测/使用" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN/室内物体检测/dataplus/load_data.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN/室内物体检测/使用/using.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="using_new" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="detection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CNN/室内物体检测/使用" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CNN/室内物体检测/使用/using_new.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -376,19 +343,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.load_data" />
       <item itemvalue="Python.滑动窗口实现室内物体识别" />
-      <item itemvalue="Python.CNN1" />
       <item itemvalue="Python.CNN" />
       <item itemvalue="Python.室内物体识别训练" />
+      <item itemvalue="Python.using" />
+      <item itemvalue="Python.using_new" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.using_new" />
         <item itemvalue="Python.室内物体识别训练" />
+        <item itemvalue="Python.using" />
         <item itemvalue="Python.滑动窗口实现室内物体识别" />
         <item itemvalue="Python.CNN" />
-        <item itemvalue="Python.CNN1" />
-        <item itemvalue="Python.load_data" />
       </list>
     </recent_temporary>
   </component>
@@ -435,12 +402,12 @@
       <workItem from="1554906955723" duration="1217000" />
       <workItem from="1554997610527" duration="2935000" />
       <workItem from="1555064021703" duration="271000" />
-      <workItem from="1555064413397" duration="11772000" />
+      <workItem from="1555064413397" duration="21120000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128150000" />
+    <option name="totallyTimeSpent" value="137498000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -453,7 +420,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1618" height="917" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4955357" visible="true" weight="0.16923077" />
       <window_info id="Structure" order="1" sideWeight="0.5033408" side_tool="true" weight="0.18333334" />
@@ -469,13 +435,13 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32994923" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32994923" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="11" visible="true" weight="0.24746193" />
+      <window_info anchor="bottom" id="Python Console" order="11" visible="true" weight="0.5291878" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32994923" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" x="1015" y="371" width="566" height="535" id="SciView" order="3" sideWeight="0.49769586" type="WINDOWED" visible="true" weight="0.32948717" />
+      <window_info active="true" anchor="right" x="736" y="231" width="566" height="535" id="SciView" order="3" sideWeight="0.49769586" type="WINDOWED" visible="true" weight="0.32948717" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" x="0" y="0" width="354" height="717" id="Documentation" order="5" sideWeight="0.50230414" side_tool="true" weight="0.18717949" />
     </layout>
@@ -521,6 +487,11 @@
           <url>file://$PROJECT_DIR$/CNN/室内物体检测/training/滑动窗口实现室内物体识别.py</url>
           <line>72</line>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CNN/室内物体检测/手写数字验证图片关于大小和位置的猜想/训练/CNN1.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -758,20 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/手写数字验证图片关于大小和位置的猜想/训练/CNN1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1008">
-          <caret line="47" column="50" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/手写数字验证图片关于大小和位置的猜想/训练/CNN.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="23" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AlexNet/自己实现CIFAR分类.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1800">
@@ -792,35 +749,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/dataplus/dataGether.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/dataplus/dataPlus.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1488">
-          <caret line="67" column="10" selection-start-line="67" selection-start-column="10" selection-end-line="67" selection-end-column="10" />
-          <folding>
-            <element signature="e#26#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/dataplus/DataDeal.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1872">
-          <caret line="80" column="35" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="35" />
-          <folding>
-            <element signature="e#156#166#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/dataplus/load_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="91" column="26" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
+        <state relative-caret-position="175">
+          <caret line="74" column="18" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="18" />
           <folding>
             <element signature="e#20#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/training/滑动窗口实现室内物体识别.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2520">
+          <caret line="105" selection-start-line="105" selection-end-line="107" selection-end-column="36" />
+          <folding>
+            <element signature="e#29#72#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -835,40 +779,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/training/滑动窗口实现室内物体识别.py">
+    <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/dataplus/DataDeal.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="107" selection-end-column="36" />
+        <state relative-caret-position="1920">
+          <caret line="80" column="35" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="35" />
           <folding>
-            <element signature="e#29#72#0" expanded="true" />
+            <element signature="e#156#166#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/training/室内物体识别训练.py">
+    <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/dataplus/dataGether.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/dataplus/dataPlus.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        <state relative-caret-position="1608">
+          <caret line="67" column="10" selection-start-line="67" selection-start-column="10" selection-end-line="67" selection-end-column="10" />
           <folding>
-            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#26#36#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/手写数字验证图片关于大小和位置的猜想/训练/CNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <folding>
+            <element signature="e#27#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/手写数字验证图片关于大小和位置的猜想/训练/CNN1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" selection-start-line="8" selection-end-line="9" selection-end-column="109" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/使用/using.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="48" column="59" lean-forward="true" selection-start-line="22" selection-end-line="48" selection-end-column="59" />
+        <state>
+          <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
           <folding>
             <element signature="e#29#75#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/training/室内物体识别训练.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CNN/室内物体检测/使用/using_new.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+        <state relative-caret-position="201">
+          <caret line="34" column="34" lean-forward="true" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
         </state>
       </provider>
     </entry>

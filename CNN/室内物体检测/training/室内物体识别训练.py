@@ -7,7 +7,7 @@ images_info=get_all_path_and_labels()
 print("image_info.shape",images_info.shape)
 
 tf.set_random_seed(10000)
-tf_x=tf.placeholder(tf.float32,[None,112,112,3])
+tf_x=tf.placeholder(tf.float32,[None,1024,1024,3])
 tf_y=tf.placeholder(tf.float32,[None,12])
 
 conv1=tf.layers.conv2d(tf_x,32,5,1,padding='same',activation=tf.nn.relu)

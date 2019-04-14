@@ -8,6 +8,7 @@ import cv2
 import numpy as np
 
 #加载model参数
+tf_x=tf.placeholder(tf.float32,[None,768,768,3])
 sess=tf.Session()
 get_model(sess)
 
